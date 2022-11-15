@@ -1,0 +1,45 @@
+<div class="main-content">
+        <div class="container-fluid">
+            <h3>Các đơn hàng của bạn</h3>
+
+            <div *ngIf="orderList.length > 0">
+                <table class="table table-bordered col-md-9">
+                    <tr>
+                        <th width="20%">Mã đơn hàng</th>
+                        <th width="10%">Tổng tiền</th>
+                        <th width="10%">Tổng sản phẩm</th>
+                        <th width="15%">Ngày đặt hàng</th>
+                        <th width="20%">Phương thức thanh toán</th>
+                        <th width="15%">Trạng thái đơn hàng</th>
+                    </tr>
+
+                    <tr *ngFor="let tempOrderHistory of orderList">
+                        <td class="pl-1">
+                            {{ tempOrderHistory.orderTrackingNumber }}
+                        </td>
+                        <td>
+                            {{ tempOrderHistory.totalPrice | currency: 'USD' }}
+                        </td>
+                        <td>
+                            {{ tempOrderHistory.totalQuantity }}
+                        </td>
+                        <td>
+                            {{ tempOrderHistory.dateCreated | date: 'medium' }}
+                        </td>
+                        <td>
+                            {{ tempOrderHistory.payment }}
+                        </td>
+                        <td class="pl-1">
+                            {{ tempOrderHistory.status }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- if order history is empty then display a message -->
+            <div *ngIf="orderList.length == 0" class="alert alert-warning col-md-12" role="alert">
+                Bạn không có đơn hàng nào.
+            </div>
+
+        </div>
+</div>

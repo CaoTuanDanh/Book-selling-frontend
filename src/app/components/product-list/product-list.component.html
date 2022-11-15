@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-3">
+        <app-product-category-menu></app-product-category-menu>
+    </div>
+    <div class="col-md-9">
+        <div class="main-content">
+            <div class="section-content section-content-p30" style="background-color: #fff">
+                <div class="container-fluid">
+                    <div class="row pt-5">
+                        <!-- loop over the collection of products -->
+                        <div *ngFor="let tempProduct of products |async" class="col-md-3" >
+        
+                            <div class="product-box">
+                                <a routerLink="/products/{{ tempProduct.id }}">
+                                    <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
+                                </a>
+        
+                                <a routerLink="/products/{{ tempProduct.id }}">
+                                    <h1 class="twenty-chars" id="product-name">{{ tempProduct.name }}</h1>
+                                </a>
+                                <div class="price">{{ tempProduct.unitPrice | currency:'VND' }}.000</div>
+                                <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Thêm vào giỏ hàng</button>
+                            </div>
+                        </div>
+        
+                        <div *ngIf="(products|async)?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                            Không tìm thấy sản phẩm.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        
+    </div>
+</div>
+
+
+
+

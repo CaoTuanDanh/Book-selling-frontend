@@ -1,0 +1,91 @@
+<div class="main-content">
+      <form [formGroup]="signupFormGroup" (ngSubmit)="onSubmit()">
+
+      <div class="container col-lg-4">
+        <h1 class="text-center">Sign Up</h1>
+        <div class="card">
+          <div formGroupName="customer" class="card-body">
+              <div class="form-group">
+                <label>First Name :</label>
+                <input formControlName="firstName" type="text"  placeholder="Enter firstName" class="form-control">
+                  <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger mt-1">
+                    <div *ngIf="firstName?.errors?.required || firstName?.errors?.notOnlyWhitespace">
+                        First Name is required
+                    </div>
+
+                    <div *ngIf="firstName?.errors?.minlength">
+                        First Name must be at least 2 characters long
+                    </div>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Last Name :</label>
+                <input formControlName="lastName" type="text"  placeholder="Enter lastName"class="form-control">
+                  <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="alert alert-danger mt-1">
+
+                    <div *ngIf="lastName?.errors?.required || lastName?.errors?.notOnlyWhitespace">
+                        Last Name is required
+                    </div>
+
+                    <div *ngIf="lastName?.errors?.minlength">
+                        Last Name must be at least 2 characters long
+                    </div>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Email :</label>
+                <input formControlName="email" type="text"  placeholder="Enter Email"class="form-control">
+
+                  <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger mt-1">
+
+                    <div *ngIf="email?.errors?.required">
+                        Email is required
+                    </div>
+
+                    <div *ngIf="email?.errors?.pattern">
+                        Email must be a valid email address format
+                    </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Password :</label>
+                <input formControlName="password" type="text"  placeholder="Enter Password"class="form-control">
+                  <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger mt-1">
+
+                    <div *ngIf="password?.errors?.required || password?.errors?.notOnlyWhitespace">
+                        Password is required
+                    </div>
+
+                    <div *ngIf="password?.errors?.minlength">
+                        Password must be at least 8 characters long
+                    </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Confirm Password :</label>
+                <input formControlName="confirm_password" type="text"  placeholder="Enter Password"class="form-control">
+                  <div *ngIf="confirm_password?.invalid && (confirm_password?.dirty || confirm_password?.touched)" class="alert alert-danger mt-1">
+
+                    <div *ngIf="confirm_password?.errors?.required || confirm_password?.errors?.notOnlyWhitespace">
+                        Password is required
+                    </div>
+
+                    <div *ngIf="confirm_password?.errors?.minlength">
+                        Password must be at least 8 characters long
+                    </div>
+                </div>
+              </div>
+
+              <!-- submit button-->
+              <div class="text-center">
+                <button type="submit" class="btn btn-success mt-1">Sign up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>

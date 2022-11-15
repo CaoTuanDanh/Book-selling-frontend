@@ -1,0 +1,18 @@
+<div class="login-status-header">
+    <div *ngIf="userFullName" class="login-status-user-info">
+        Chào mừng {{ userFullName }}!
+    </div>
+    <div class="col ms-1">
+		<div ngbDropdown class="d-inline-block">
+			<button type="button" (click)="ngOnInit()" id="dropdownBasic1" ngbDropdownToggle>
+				<img src="assets/images/user.png" width="50%" height="10%">
+			</button>
+			<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+
+				<button ngbDropdownItem *ngIf="!userFullName" routerLink="/login" class="btn">Đăng nhập</button>
+				<button ngbDropdownItem *ngIf="userFullName" (click)="logout()" class="btn">Đăng xuất</button>
+				<button ngbDropdownItem *ngIf="userFullName" routerLink="/order-history" class="btn">Các đơn hàng</button>
+			</div>
+		</div>
+	</div>
+</div>

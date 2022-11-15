@@ -1,0 +1,131 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+                <div formGroupName="selectPayment" class="form-area">
+                    <h3>Phương thức thanh toán</h3>
+                    <div class="row">
+                        <div class="col-md-2"> <label>Chọn phương thức thanh toán</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                               <select formControlName="payment" (click)="onChange($event)" (change)="onChange($event)" >
+                                    <option >Thanh toán bằng tiền mặt khi nhận hàng</option>
+                                    <option >Thanh toán bằng ví MoMo</option>
+                                </select>
+                                <div *ngIf="selectPayment?.invalid && (selectPayment?.dirty || selectPayment?.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="selectPayment?.errors?.required">
+                                        Bạn phải chọn phương thức thanh toán.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- shipping Address -->
+                <div formGroupName="shippingAddress" class="form-area">
+                    <h3>Địa chỉ giao hàng</h3>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Tỉnh/Thành phố</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="tinhthanh"(change)="getHuyen('shippingAddress')">
+                                    <option *ngFor="let tinhthanh of shippingAddressTinhthanhs" [ngValue]="tinhthanh">
+                                        {{ tinhthanh.name }}
+                                    </option>
+                                </select>
+
+                                <div *ngIf="shippingAddressTinhthanh?.invalid && (shippingAddressTinhthanh?.dirty || shippingAddressTinhthanh?.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="shippingAddressTinhthanh?.errors?.required">
+                                        Bạn phải chọn địa chỉ Tỉnh/Thành phố.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Huyện</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="huyen"(change)="getXa('shippingAddress')">
+                                    <option *ngFor="let huyen of shippingAddressHuyens" [ngValue]="huyen">
+                                        {{ huyen.name }}
+                                    </option>
+                                </select>
+
+                                <div *ngIf="shippingAddressHuyen?.invalid && (shippingAddressHuyen?.dirty || shippingAddressHuyen?.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="shippingAddressHuyen?.errors?.required">
+                                        Bạn phải chọn địa chỉ Huyện.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Xã</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="xa">
+                                    <option *ngFor="let xa of shippingAddressXas" [ngValue]="xa">
+                                        {{ xa.name }}
+                                    </option>
+                                </select>
+
+                                <div *ngIf="shippingAddressXa?.invalid && (shippingAddressXa?.dirty || shippingAddressXa?.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="shippingAddressXa?.errors?.required">
+                                        Bạn phải chọn địa chỉ Xã.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Địa chỉ chi tiết</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="diachi" type="text">
+                                <div *ngIf="shippingAddressDiachi?.invalid && (shippingAddressDiachi?.dirty || shippingAddressDiachi?.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="shippingAddressDiachi?.errors?.required || shippingAddressDiachi?.errors?.notOnlyWhitespace">
+                                        Bạn phải điền địa chỉ chi tiết.
+                                    </div>
+                                    <div *ngIf="shippingAddressDiachi?.errors?.minlength">
+                                        Địa chỉ chi tiết không được dưới 2 kí tự.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Order details -->
+                <div class="form-area">
+                    <h3>Xem lại đơn hàng</h3>
+
+                    <p>Tổng sản phẩm: {{ totalQuantity }}</p>
+                    <p>Phí giao hàng: FREE</p>
+                    <p>Tổng số tiền: {{ totalPrice | currency: 'VND' }}.000</p>
+                </div>
+
+                <div *ngIf="paymentMomo==true"class="text-center">
+                    <h3>Quét mã thanh toán bằng ví MoMo</h3>
+                    <div>
+                        <img src="assets/images/MaQR.jpg" class="img-responsive">
+                    </div>
+                </div>
+
+                <!-- submit button-->
+                <div class="text-center mt-1 mb-5">
+                    <button type="submit" class="btn btn-info">Đặt hàng</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
