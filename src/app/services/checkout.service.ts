@@ -11,7 +11,7 @@ import { OrderItem } from '../common/order-item';
 })
 export class CheckoutService {
 
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://book-selling-backend.herokuapp.com/';
 
   private addressUrl= this.baseUrl+'apiAddress/save';
   private orderUrl= this.baseUrl+'apiOrder/save';
