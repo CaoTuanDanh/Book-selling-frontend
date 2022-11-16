@@ -2,87 +2,87 @@
       <form [formGroup]="signupFormGroup" (ngSubmit)="onSubmit()">
 
       <div class="container col-lg-4">
-        <h1 class="text-center">Sign Up</h1>
+        <h1 class="text-center">Đăng kí tài khoản</h1>
         <div class="card">
           <div formGroupName="customer" class="card-body">
               <div class="form-group">
-                <label>First Name :</label>
-                <input formControlName="firstName" type="text"  placeholder="Enter firstName" class="form-control">
+                <label>Họ :</label>
+                <input formControlName="firstName" type="text"  placeholder="Họ " class="form-control">
                   <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger mt-1">
                     <div *ngIf="firstName?.errors?.required || firstName?.errors?.notOnlyWhitespace">
-                        First Name is required
+                        Bạn phải điền họ.
                     </div>
 
                     <div *ngIf="firstName?.errors?.minlength">
-                        First Name must be at least 2 characters long
+                        Họ không được ít hơn 2 kí tự.
                     </div>
 
                 </div>
               </div>
               <div class="form-group">
-                <label>Last Name :</label>
-                <input formControlName="lastName" type="text"  placeholder="Enter lastName"class="form-control">
+                <label>Tên :</label>
+                <input formControlName="lastName" type="text"  placeholder="Tên"class="form-control">
                   <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="alert alert-danger mt-1">
 
                     <div *ngIf="lastName?.errors?.required || lastName?.errors?.notOnlyWhitespace">
-                        Last Name is required
+                        Bạn phải điền tên.
                     </div>
 
                     <div *ngIf="lastName?.errors?.minlength">
-                        Last Name must be at least 2 characters long
+                        Tên không được ít hơn 2 kí tự.
                     </div>
 
                 </div>
               </div>
               <div class="form-group">
                 <label>Email :</label>
-                <input formControlName="email" type="text"  placeholder="Enter Email"class="form-control">
+                <input formControlName="email" type="text"  placeholder="Email"class="form-control">
 
                   <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger mt-1">
 
                     <div *ngIf="email?.errors?.required">
-                        Email is required
+                       Bạn phải điền email.
                     </div>
 
                     <div *ngIf="email?.errors?.pattern">
-                        Email must be a valid email address format
+                        Email chưa đúng định dạng.
                     </div>
                 </div>
               </div>
 
               <div class="form-group">
-                <label>Password :</label>
-                <input formControlName="password" type="text"  placeholder="Enter Password"class="form-control">
+                <label>Mật khẩu :</label>
+                <input formControlName="password" type="text"  placeholder="Mật khẩu"class="form-control">
                   <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger mt-1">
 
                     <div *ngIf="password?.errors?.required || password?.errors?.notOnlyWhitespace">
-                        Password is required
+                        Bạn phải điền mật khẩu.
                     </div>
 
                     <div *ngIf="password?.errors?.minlength">
-                        Password must be at least 8 characters long
+                        Mật khẩu phải bao gồm ít nhất 8 kí tự.
                     </div>
                 </div>
               </div>
 
               <div class="form-group">
-                <label>Confirm Password :</label>
-                <input formControlName="confirm_password" type="text"  placeholder="Enter Password"class="form-control">
+                <label>Nhắc lại mật khẩu :</label>
+                <input formControlName="confirm_password" type="text"  placeholder="Nhắc lại mật khẩu"class="form-control">
                   <div *ngIf="confirm_password?.invalid && (confirm_password?.dirty || confirm_password?.touched)" class="alert alert-danger mt-1">
 
                     <div *ngIf="confirm_password?.errors?.required || confirm_password?.errors?.notOnlyWhitespace">
-                        Password is required
+                        Bạn phải điền mật khẩu.
                     </div>
 
                     <div *ngIf="confirm_password?.errors?.minlength">
-                        Password must be at least 8 characters long
+                        Mật khẩu phải bao gồm ít nhất 8 kí tự.
                     </div>
                 </div>
               </div>
 
               <!-- submit button-->
               <div class="text-center">
-                <button type="submit" class="btn btn-success mt-1">Sign up</button>
+                <button type="submit" class="btn btn-success mt-1">Đăng ký</button>
             </div>
           </div>
         </div>

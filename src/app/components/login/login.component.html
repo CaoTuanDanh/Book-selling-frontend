@@ -1,22 +1,22 @@
 <div class="main-content">
 <div class="container col-lg-5">
-    <h1 class="text-center">Login</h1>
+    <h1 class="text-center">Đăng nhập</h1>
     <div class="card">
       <div class="card-body">
         <form class="form-group">
           <div class="form-group">
             <label for="email">Email :</label>
-            <input type="text" [(ngModel)]="customer.email" class="form-control" id="email"  placeholder="Enter Email"
+            <input type="text" [(ngModel)]="customer.email" class="form-control" id="email"  placeholder="Nhập Email"
               name="username">
           </div>
           <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" [(ngModel)]="customer.password" id="password" placeholder="Enter password"
+            <label for="pwd">Mật khẩu :</label>
+            <input type="password" class="form-control" [(ngModel)]="customer.password" id="password" placeholder="Nhập mật khẩu"
               name="password">
           </div>
           <div class="text-center mt-1">
-          <button (click)=handleLogin() class="btn btn-success">Login</button>
-          <button *ngIf="!isClick" routerLink="/signup" class="btn btn-success ms-1">Sign up</button>
+          <button (click)=handleLogin() class="btn btn-success">Đăng nhập</button>
+          <button *ngIf="!isClick" routerLink="/signup" class="btn btn-success ms-1">Đăng ký</button>
         </div>
         </form>
       </div>
