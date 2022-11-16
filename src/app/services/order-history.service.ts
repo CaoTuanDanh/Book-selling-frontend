@@ -10,7 +10,7 @@ import { OrderHistory } from '../common/order-history';
 })
 export class OrderHistoryService {
 
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://book-selling-backend.herokuapp.com/';
 
   private orderUrlget= this.baseUrl+'apiOrder/customer/';
   private customerUrlgetByemail= this.baseUrl+'apiCustomer/email/';

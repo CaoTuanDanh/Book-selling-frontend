@@ -8,7 +8,7 @@ import { Customer } from '../common/customer';
 })
 export class SignupService {
 
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://book-selling-backend.herokuapp.com/';
   private customerUrl= this.baseUrl+'apiCustomer/save';
   private customerUrlget= this.baseUrl+'apiCustomer/all';
 

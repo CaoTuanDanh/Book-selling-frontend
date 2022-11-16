@@ -9,7 +9,7 @@ import { Tinhthanh } from '../common/tinhthanh';
 })
 export class DTShopFormService {
 
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://book-selling-backend.herokuapp.com/';
 
   private tinhthanhUrl = this.baseUrl+'apiTinhthanh/all';
   private huyenUrl = this.baseUrl+'apiHuyen/huyen/';

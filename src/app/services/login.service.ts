@@ -9,7 +9,7 @@ import { Customer } from '../common/customer';
 })
 export class LoginService {
 
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://book-selling-backend.herokuapp.com/';
 
   private findCusByEmailUrl = this.baseUrl+'apiCustomer/';
   private findAllCus =this.baseUrl+'apiCustomer/all';
