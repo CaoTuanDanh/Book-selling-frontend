@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
 
   searchMode: boolean = false;
   
-   isLoaded: boolean = true;
+   isLoaded: boolean;
 
   constructor(private productService: ProductService,
     private cartService: CartService,
@@ -29,7 +29,7 @@ export class ProductListComponent implements OnInit {
      this.route.paramMap.subscribe(() => {
       this.ProductListByCate();
     })
-    
+    this.isLoaded = true;
     setInterval(() => {
       this.isLoaded = false;
     }, 10000);
