@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
 import { CartService } from 'src/app/services/cart.service';
-import { LoaderService } from 'src/app/services/loader.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -19,16 +18,24 @@ export class ProductListComponent implements OnInit {
   currentCategoryId: number;
 
   searchMode: boolean = false;
+  
+   isLoaded: boolean;
 
   constructor(private productService: ProductService,
     private cartService: CartService,
-    private route: ActivatedRoute,
-    public loaderService: LoaderService) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
      this.route.paramMap.subscribe(() => {
       this.ProductListByCate();
     })
+    this.isLoaded = true;
+    setInterval(() => {
+      this.isLoaded = false;
+    }, 7000);
+   
+  }
 
   ProductList() {
     this.products = this.productService.getProductsList();
@@ -64,10 +71,6 @@ export class ProductListComponent implements OnInit {
     }
     else {
       this.products = this.productService.getProductsList();
-       if(this.products != null)
-      {
-        this.isLoaded= false;
-      }
     }
   }
 
