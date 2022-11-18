@@ -30,11 +30,10 @@ export class ProductListComponent implements OnInit {
       this.ProductListByCate();
     })
     
-     if(this.products !=null){
+    setInterval(() => {
       this.isLoaded = false;
-    } 
+    }, 10000);
    
-
   }
 
   ProductList() {
