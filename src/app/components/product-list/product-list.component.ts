@@ -33,7 +33,7 @@ export class ProductListComponent implements OnInit {
     this.isLoaded = true;
     setInterval(() => {
       this.isLoaded = false;
-    }, 7000);
+    }, 10000);
    
   }
 
