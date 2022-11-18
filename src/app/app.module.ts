@@ -20,10 +20,6 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
-
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { InterceptorService } from './services/interceptor.service';
 const routes: Routes = [
 
   {path: 'order-history', component: OrderHistoryComponent},
@@ -66,14 +62,9 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule
+    FormsModule
   ],
-  //providers: [ProductService],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
-  ],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
