@@ -29,6 +29,10 @@ export class ProductListComponent implements OnInit {
      this.route.paramMap.subscribe(() => {
       this.ProductListByCate();
     })
+    
+     if(this.products !=null){
+      this.isLoaded = false;
+    } 
    
 
   }
