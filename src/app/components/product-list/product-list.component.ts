@@ -19,15 +19,13 @@ export class ProductListComponent implements OnInit {
 
   searchMode: boolean = false;
   
-   isLoaded: boolean;
+   isLoaded: boolean == true;
 
   constructor(private productService: ProductService,
     private cartService: CartService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.isLoaded = true;
-
      this.route.paramMap.subscribe(() => {
       this.ProductListByCate();
     })
