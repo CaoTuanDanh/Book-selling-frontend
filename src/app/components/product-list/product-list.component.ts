@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
 
   searchMode: boolean = false;
   
-   isLoaded: boolean == true;
+   isLoaded: boolean = true;
 
   constructor(private productService: ProductService,
     private cartService: CartService,
