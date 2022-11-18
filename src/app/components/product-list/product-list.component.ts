@@ -19,8 +19,6 @@ export class ProductListComponent implements OnInit {
   currentCategoryId: number;
 
   searchMode: boolean = false;
-  
-   isLoaded: boolean;
 
   constructor(private productService: ProductService,
     private cartService: CartService,
@@ -28,23 +26,9 @@ export class ProductListComponent implements OnInit {
     public loaderService: LoaderService) { }
 
   ngOnInit(): void {
-<<<<<<< HEAD
-
-      
      this.route.paramMap.subscribe(() => {
       this.ProductListByCate();
     })
-=======
-     this.route.paramMap.subscribe(() => {
-      this.ProductListByCate();
-    })
-    this.isLoaded = true;
-    setInterval(() => {
-      this.isLoaded = false;
-    }, 7000);
-   
->>>>>>> 6bb5b3934882cdb4ab4de559577b0c0056a52c7b
-  }
 
   ProductList() {
     this.products = this.productService.getProductsList();
