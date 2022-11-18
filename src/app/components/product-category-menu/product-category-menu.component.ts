@@ -15,6 +15,8 @@ export class ProductCategoryMenuComponent implements OnInit {
 
   procate: ProductCategory[]=[];
 
+
+
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
 import { CartService } from 'src/app/services/cart.service';
+import { LoaderService } from 'src/app/services/loader.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -21,15 +22,15 @@ export class ProductListComponent implements OnInit {
 
   constructor(private productService: ProductService,
     private cartService: CartService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public loaderService: LoaderService) { }
 
   ngOnInit(): void {
 
+      
      this.route.paramMap.subscribe(() => {
       this.ProductListByCate();
     })
-   
-
   }
 
   ProductList() {

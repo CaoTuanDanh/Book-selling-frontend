@@ -5,11 +5,13 @@
     <div class="col-md-9">
         <div class="main-content">
             <div class="section-content section-content-p30" style="background-color: #fff">
+                <div *ngIf="loaderService.isLoading | async" class="loader-container">
+                    <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+                  </div>
                 <div class="container-fluid">
                     <div class="row pt-5">
                         <!-- loop over the collection of products -->
                         <div *ngFor="let tempProduct of products |async" class="col-md-3" >
-        
                             <div class="product-box">
                                 <a routerLink="/products/{{ tempProduct.id }}">
                                     <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
@@ -22,6 +24,7 @@
                                 <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Thêm vào giỏ hàng</button>
                             </div>
                         </div>
+
         
                         <div *ngIf="(products|async)?.length == 0" class="alert alert-warning col-md-12" role="alert">
                             Không tìm thấy sản phẩm.

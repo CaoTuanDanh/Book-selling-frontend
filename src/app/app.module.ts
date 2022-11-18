@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,7 +21,9 @@ import { LoginStatusComponent } from './components/login-status/login-status.com
 import { SignupComponent } from './components/signup/signup.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { InterceptorService } from './services/interceptor.service';
 const routes: Routes = [
 
   {path: 'order-history', component: OrderHistoryComponent},
@@ -64,9 +66,14 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
-  providers: [ProductService],
+  //providers: [ProductService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
