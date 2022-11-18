@@ -18,12 +18,15 @@ export class ProductListComponent implements OnInit {
   currentCategoryId: number;
 
   searchMode: boolean = false;
+  
+   isLoaded: boolean;
 
   constructor(private productService: ProductService,
     private cartService: CartService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.isLoaded = true;
 
      this.route.paramMap.subscribe(() => {
       this.ProductListByCate();
@@ -66,6 +69,10 @@ export class ProductListComponent implements OnInit {
     }
     else {
       this.products = this.productService.getProductsList();
+       if(this.products != null)
+      {
+        this.isLoaded= false;
+      }
     }
   }
 
